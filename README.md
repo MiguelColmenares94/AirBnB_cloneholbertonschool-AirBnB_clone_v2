@@ -141,7 +141,7 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 ```
 <br>
 
-#Authors
+###### Authors
 -  Miguel Colmenares([@MiguelColmenares](https://github.com/MiguelColmenares94))
 - John Espino ([@JohnEspino](https://github.com/johnNaduer))
 - Ezra Nobrega ([@EzraNobrega](https://github.com/eNobreg))
