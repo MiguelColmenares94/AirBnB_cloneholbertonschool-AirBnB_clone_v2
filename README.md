@@ -145,6 +145,6 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 <ul>
 <li><a href="https://github.com/MiguelColmenares94">Miguel Colmenares</a></li>
 <li><a href="https://github.com/johnNaduer">John Espino</a></li>
-<li><a href"https://github.com/justinmajetich">Ezra Nobrega</a></li>
-<li><a href"https://github.com/justinmajetich">Justin Majetich</a></li>
+<li><a href="https://github.com/eNobreg">Ezra Nobrega</a></li>
+<li><a href="https://github.com/justinmajetich">Justin Majetich</a></li>
 </ul>
