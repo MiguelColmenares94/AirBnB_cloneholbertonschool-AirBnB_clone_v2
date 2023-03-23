@@ -142,7 +142,9 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 <br>
 
 <center> <h3>Authors</h3> </center>
--  Miguel Colmenares([@MiguelColmenares](https://github.com/MiguelColmenares94))\ 
-- John Espino ([@JohnEspino](https://github.com/johnNaduer))\
-- Ezra Nobrega ([@EzraNobrega](https://github.com/eNobreg))\
-- Justin Majetich ([@JustinMajetich](https://github.com/justinmajetich/AirBnB_clone))\
+<ul>
+<li>- Miguel Colmenares (https://github.com/MiguelColmenares94))</li>
+<li>- John Espino (https://github.com/johnNaduer))</li>
+<li>- Ezra Nobrega (https://github.com/eNobreg))</li>
+<li>- Justin Majetich (https://github.com/justinmajetich/AirBnB_clone))</li>
+</ul>
