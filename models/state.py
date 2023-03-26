@@ -16,7 +16,7 @@ if environ.get('HBNB_TYPE_STORAGE') == 'db':
         cities = relationship('City', backref='state', cascade='all, delete')
 
 else:
-    class State(Basemodel):
+    class State(BaseModel):
         """State class for FS"""
 
         @property
