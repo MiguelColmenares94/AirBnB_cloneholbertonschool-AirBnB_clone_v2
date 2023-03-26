@@ -22,6 +22,7 @@ class FileStorage:
             return {key: obj
                     for key, obj in self.__objects.items()
                     if type(obj) == cls}
+
     def new(self, obj):
         """Adds new object to storage dictionary"""
         self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
@@ -57,6 +58,7 @@ class FileStorage:
             search_obj = "{}.{}".format(obj.__class__.__name__, obj.id)
             if search_obj in self.__objects:
                 del self.__objects[search_obj]
+                self.save()
 
 
         try:
