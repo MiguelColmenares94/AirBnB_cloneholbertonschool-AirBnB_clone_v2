@@ -5,6 +5,7 @@ from models.city import City
 from os import getenv
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlachemy.orm import relationship
 
 
 if getenv('HBNB_TYPE_STORAGE') == 'db':
