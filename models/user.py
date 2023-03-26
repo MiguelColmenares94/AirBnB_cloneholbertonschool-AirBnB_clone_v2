@@ -18,6 +18,8 @@ if environ.get('HBNB_TYPE_STORAGE') == 'db':
         last_name = Column(String(128))
         places = relationship("Place", backref="user",
                               cascade='all, delete')
+        reviews = relationship('Review', backref='user',
+                               cascade='all, delete')
 else:
     class User(BaseModel):
         """This class defines a usar by various attributes FS"""

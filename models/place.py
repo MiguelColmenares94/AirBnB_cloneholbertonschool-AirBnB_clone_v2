@@ -22,6 +22,8 @@ if environ.get('HBNB_TYPE_STORAGE') == 'db':
         price_by_night = Column(Integer, nullable=False, default=0)
         latitude = Column(Float, nullable=True)
         longitude = Column(Float, nullable=True)
+        reviews = relationship('Review', backref='place',
+                               cascade='all, delete')
 
 else:
     class Place(BaseModel):
@@ -37,3 +39,12 @@ else:
         latitude = ''
         longitude = ''
         amenity_ids = []
+
+        @property
+        def reviews(self):
+            """ FileStorage relationship between Place and Review """
+            all_reviews = models.storage.all(Review)
+            total_reviews = []
+            for every_review in all_reviews.values():
+                total_reviews.append(every_review)
+            return (total_reviews)
