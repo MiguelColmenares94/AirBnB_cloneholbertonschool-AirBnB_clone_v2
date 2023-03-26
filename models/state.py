@@ -5,7 +5,7 @@ from models.city import City
 from os import getenv
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlachemy.orm import relationship
+from sqlalchemy.orm import relationship
 
 
 if getenv('HBNB_TYPE_STORAGE') == 'db':
@@ -19,11 +19,10 @@ else:
     class State(Basemodel):
         """State class for FS"""
 
-       @property
-       def cities(self):
-           """Returns the list of City instances"""
-           return[city
-                  for city in storage.all(City).values()
-                  if city.state_id == self.id]
-
-
+        @property
+        def cities(self):
+            """Returns the list of City instances"""
+            from models import storage
+            return[city
+                   for city in storage.all(City).values()
+                   if city.state_id == self.id]

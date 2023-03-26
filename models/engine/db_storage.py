@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """DBStorage Module"""
 
-from os import getenv
+from os import environ
 from models.base_model import Base, BaseModel
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -22,18 +22,18 @@ class DBStorage:
     __engine = None
     __session = None
 
-    def __init__(self)
-    """Initializes a new instance of the DBStorage class."""
-    user = os.getenv(HBNB_MYSQL_USER)
-    password = os.getenv(HBNB_MYSQL_PWD)
-    host = os.getenv(HBNB_MYSQL_HOST)
-    database = os.getenv(HBNB_MYSQL_DB)
+    def __init__(self):
+        """Initializes a new instance of the DBStorage class."""
+        user = environ.get('HBNB_MYSQL_USER')
+        password = environ.get('HBNB_MYSQL_PWD')
+        host = environ.get('HBNB_MYSQL_HOST')
+        database = environ.get('HBNB_MYSQL_DB')
 
-    self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
-                                  format(user, password, host, database), pool_pre_ping=True)
+        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
+                                      format(user, password, host, database), pool_pre_ping=True)
 
-    if os.getenv('HBNB_ENV') == 'test':
-        Base.metada.drop_all(self.__engine)
+        if environ.get('HBNB_ENV') == 'test':
+            Base.metada.drop_all(self.__engine)
 
 
     def all(self, cls=None):
