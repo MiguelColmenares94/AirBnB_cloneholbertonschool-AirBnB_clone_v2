@@ -2,13 +2,13 @@
 """ State Module for HBNB project """
 from models.base_model import BaseModel, Base
 from models.city import City
-from os import getenv
+from os import environ
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 
-if getenv('HBNB_TYPE_STORAGE') == 'db':
+if environ.get('HBNB_TYPE_STORAGE') == 'db':
     class State(BaseModel, Base):
         """ State class for DB"""
         __tablename__ = "states"
