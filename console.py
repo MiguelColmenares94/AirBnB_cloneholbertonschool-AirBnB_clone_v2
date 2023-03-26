@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
                'State': State, 'City': City, 'Amenity': Amenity,
                'Review': Review
               }
-    dot_cmds = ['all', 'count', 'show', 'destroy', 'update']
+    dot_cmds = ['all', 'count', 'show', 'destroy', 'update', 'create']
     types = {
              'number_rooms': int, 'number_bathrooms': int,
              'max_guest': int, 'price_by_night': int,
@@ -114,7 +114,50 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, args):
-        """ create objects with arguments """
+        """ Create an object of any class"""
+        pline = args.split()
+        _cls = pline[0]
+        values = []
+        names = []
+        if not _cls:
+            print("** class name missing **")
+            return
+        elif _cls not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+        for i in range(1, len(pline)):
+            tupl = pline[i].partition('=')
+            names.append(tupl[0])
+            try:
+                if tupl[2][0] == '\"' and tupl[2][-1] == '\"':
+                    value = tupl[2].replace('\"', '')
+                    value = value.replace('_', ' ')
+                    values.append(value)
+                else:
+                    value = tupl[2]
+                    if '.' in value or type(value) is float:
+                        try:
+                            value = float(value)
+                            values.append(value)
+                        except Exception:
+                            pass
+                    else:
+                        try:
+                            value = int(value)
+                            values.append(value)
+                        except Exception:
+                            pass
+            except IndexError:
+                continue
+
+        dictionary = dict(zip(names, values))
+
+        new_instance = HBNBCommand.classes[_cls]()
+        new_instance.__dict__.update(dictionary)
+        new_instance.save()
+        print(new_instance.id)
+
+        """ create objects with arguments
 
         try:
             if not args:
@@ -139,21 +182,36 @@ class HBNBCommand(cmd.Cmd):
         except SyntaxError:
             print("** class name missing **")
         except NameError:
-            print("** class doesn't exist **")
+            print("** class doesn't exist **") """
 
+        """Create an object of any class
+        tokenize = args.split()
+        tokens = tokenize[2].split("=")
+        name_list = []
+        values_list = []
 
-        """ #Create an object of any class
         if not args:
             print("** class name missing **")
             return
         elif args not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
+
+        if tokens[1][0] == '\"' and tokens[1][-1] == '\"':
+            pass
+        else:
+            print("name must be inside double quotes")
+
+        if tokens[1][1:-2] is '\"':
+            tokens[1][1:-2].replace('\"', '\\\"')
+
+        if tokens[1][1:-2] is '_':
+            tokens[1][1:-2].replace("_", " ")
         new_instance = HBNBCommand.classes[args]()
         storage.save()
         print(new_instance.id)
-        storage.save()
-        """
+        storage.save()"""
+
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")

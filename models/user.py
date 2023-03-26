@@ -4,6 +4,7 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey, Integer
 from os import environ
 from sqlalchemy.orm import relationship, backref
+from models.place import Place
 
 
 if environ.get('HBNB_TYPE_STORAGE') == 'db':

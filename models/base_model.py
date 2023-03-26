@@ -72,8 +72,8 @@ class BaseModel:
                           (str(type(self)).split('.')[-1]).split('\'')[0]})
         dictionary['created_at'] = self.created_at.isoformat()
         dictionary['updated_at'] = self.updated_at.isoformat()
-        search_key = _sa_instance_state
-        if search_key in dictionary.items():
+        search_key = '_sa_instance_state'
+        if search_key in dictionary:
             del dictionary[search_key]
         return dictionary
 
