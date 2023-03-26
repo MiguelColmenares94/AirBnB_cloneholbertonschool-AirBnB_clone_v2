@@ -19,8 +19,9 @@ class FileStorage:
         if cls is None:
             return FileStorage.__objects
         else:
-            return [obj for obj in self.__objects.values()
-                    if type(obj) == cls]
+            return {key: obj
+                    for key, obj in self.__objects.items()
+                    if type(obj) == cls}
     def new(self, obj):
         """Adds new object to storage dictionary"""
         self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
@@ -54,6 +55,8 @@ class FileStorage:
         """Delete obj from __objects if exist, if not do nothing"""
         if obj is not None:
             del self.__objects[obj]
+        else:
+            pass
 
 
         try:
