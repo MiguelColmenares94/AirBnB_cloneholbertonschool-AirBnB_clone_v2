@@ -1,11 +1,18 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from models.review import Review
+from models.amenity import Amenity
+from sqlalchemy import Table, Column, Integer, String, Float, ForeignKey
 from os import environ
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 
+
+place_amenity = Table('place_amenity', Base.metadata,
+                      Column('place_id', String(60), ForeignKey('places.id'), nullable=False),
+                      Column('amenity_id', String(60), ForeignKey('amenities.id'), nullable=False)
+                      )
 
 if environ.get('HBNB_TYPE_STORAGE') == 'db':
 
@@ -24,6 +31,8 @@ if environ.get('HBNB_TYPE_STORAGE') == 'db':
         longitude = Column(Float, nullable=True)
         reviews = relationship('Review', backref='place',
                                cascade='all, delete')
+        amenities = relationship("Amenity", secondary='place_amenity',
+                                 back_populates='place_amenities', viewonly=False)
 
 else:
     class Place(BaseModel):
@@ -48,3 +57,15 @@ else:
             for every_review in all_reviews.values():
                 total_reviews.append(every_review)
             return (total_reviews)
+
+        @property
+        def amenities(self):
+            """Getter for amenity.id linked to Place class"""
+            self.amenity_ids = models.storage.all(Amenity)
+            return (self.amenity_ids)
+
+        @amenities.setter
+        def amenities(self, id):
+            """handles append method for adding an Amenity.id to the attribute amenity_ids"""
+            if id.__class__.__name__ == 'Amenity':
+                self.amenity_ids.append(id)
