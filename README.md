@@ -4,6 +4,32 @@ This repository contains the initial stage of a student project to build a clone
 
 ---
 
+
+<p>
+### Unit Testing
+Unit testing is the process of testing individual units or components of a software system to ensure that they work as intended. In this project, we have implemented unit testing to ensure that our functions and classes work as expected. We use the unittest module to write our tests, and we run them using the python -m unittest command.
+
+### *args
+*args is a special syntax in Python that allows us to pass a variable number of arguments to a function. In this project, we use it to create functions that can take a variable number of arguments. For example, we use it in our add_numbers() function to allow the user to add any number of numbers together.
+
+### **kwargs
+**kwargs is another special syntax in Python that allows us to pass a variable number of keyword arguments to a function. In this project, we use it to create functions that can take a variable number of keyword arguments. For example, we use it in our create_user() function to allow the user to create a new user with any number of attributes.
+
+### Named Arguments
+Named arguments allow us to specify the name of the argument we are passing to a function. In this project, we use them to handle optional arguments that have default values. For example, we use them in our create_user() function to allow the user to specify a custom username and password, but also provide default values if they are not specified.
+
+### MySQL Database Management
+MySQL is a popular relational database management system. In this project, we provide instructions on how to create a MySQL database, create a MySQL user and grant it privileges, and map a Python class to a MySQL table. We also provide an example of how to handle two different storage engines with the same codebase.
+
+### ORM
+ORM stands for Object-Relational Mapping. It is a technique that allows us to map objects in our code to rows in a relational database. In this project, we use the SQLAlchemy ORM to map our Python classes to MySQL tables.
+
+### Environment Variables
+Environment variables are variables that are set in the operating system environment and can be accessed by programs running on the system. In this project, we use environment variables to store sensitive information like database credentials. We use the os module to access the values of environment variables.
+
+</p>
+
+
 <center><h3>Repository Contents by Project Task</h3> </center>
 
 | Tasks | Files | Description |
