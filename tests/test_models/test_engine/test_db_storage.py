@@ -13,7 +13,8 @@ from models.engine.file_storage import FileStorage
 import MySQLdb
 
 
-@unittest.skipIf(environ.get('HBNB_TYPE_STORAGE') != 'db')
+@unittest.skipIf(environ.get('HBNB_TYPE_STORAGE') != 'db',
+                 "Test just in case DBStorage")
 
 class TestDBStorage(unittest.TestCase):
     """All test for the Data Base"""
