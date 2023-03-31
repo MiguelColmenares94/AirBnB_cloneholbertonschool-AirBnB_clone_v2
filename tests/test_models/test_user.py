@@ -36,4 +36,3 @@ class test_User(test_basemodel):
 
 if __name__ == '__main__':
     unittest.main()
-

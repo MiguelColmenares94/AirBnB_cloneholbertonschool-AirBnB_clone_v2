@@ -19,5 +19,5 @@ class test_Amenity(test_basemodel):
         self.assertEqual(type(new.name), str)
 
 
-        if __name__ == '__main__':
+if __name__ == '__main__':
     unittest.main()

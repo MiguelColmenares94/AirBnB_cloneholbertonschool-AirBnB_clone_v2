@@ -26,4 +26,3 @@ class test_City(test_basemodel):
 
 if __name__ == '__main__':
     unittest.main()
-

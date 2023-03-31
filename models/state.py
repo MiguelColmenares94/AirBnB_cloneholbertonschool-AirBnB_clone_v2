@@ -18,6 +18,7 @@ if environ.get('HBNB_TYPE_STORAGE') == 'db':
 else:
     class State(BaseModel):
         """State class for FS"""
+        name = ''
 
         @property
         def cities(self):
