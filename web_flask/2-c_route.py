@@ -19,7 +19,7 @@ def greet2():
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def greet2():
+def route_w_var(text):
     """Return abosulte path without slashes neither underscores"""
     return print("C %s".format(text.replace("_", " ")))
 
