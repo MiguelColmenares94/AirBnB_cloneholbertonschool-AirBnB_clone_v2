@@ -45,6 +45,7 @@ def number_var(n):
     """Return abosulte path without slashes neither underscores"""
     return f'{escape(n)} is a number'
 
+
 @app.route("/number_template")
 @app.route("/number_template/<int:n>", strict_slashes=False)
 def number_template(n=0):
