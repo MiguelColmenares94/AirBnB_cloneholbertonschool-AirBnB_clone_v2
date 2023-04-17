@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from flask import Flask
 from models import storage, storage.all
 from models.state import State
@@ -13,7 +14,8 @@ def td_appcontext():
 @app.route("/states_list", strict_slashes=False)
 def state_list():
     """Return an HTML page showing a list with all state objects"""
-    return render_template('7-states_list.html', states=storage.all.states.values())
+    return render_template('7-states_list.html',
+                           states=storage.all.states.values())
 
 
 if __name__ == "__main__":
