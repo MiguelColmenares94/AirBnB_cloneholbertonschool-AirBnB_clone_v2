@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+"""script that starts a Flask web application"""
 from flask import Flask
-from models import storage, storage.all
+from models import storage
 from models.state import State
 
 app = Flask(__name__)
@@ -8,6 +9,7 @@ app = Flask(__name__)
 
 @app.teardown_appcontext
 def td_appcontext():
+    """After each request remove the current SQLAlchemy Session"""
     storage.close()
 
 
