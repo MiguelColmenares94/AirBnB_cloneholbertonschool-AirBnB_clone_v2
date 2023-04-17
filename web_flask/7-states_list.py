@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 
 @app.teardown_appcontext
-def td_appcontext():
+def td_appcontext(self):
     """After each request remove the current SQLAlchemy Session"""
     storage.close()
 
