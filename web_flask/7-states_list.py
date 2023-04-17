@@ -15,7 +15,7 @@ def td_appcontext():
 def state_list():
     """Return an HTML page showing a list with all state objects"""
     return render_template('7-states_list.html',
-                           states=storage.all.states.values())
+                           states=storage.all(State).values())
 
 
 if __name__ == "__main__":
