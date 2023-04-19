@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """script that starts a Flask web application"""
-from flask import Flask
+from flask import Flask, render_template
 from models import storage
 from models.state import State
 
@@ -10,8 +10,8 @@ app = Flask(__name__)
 @app.route("/states_list", strict_slashes=False)
 def state_list():
     """Return an HTML page showing a list with all state objects"""
-    states=storage.all(State).values())
-    return render_template('7-states_list.html', states=states)
+    return render_template('7-states_list.html',
+                           state=storage.all(State).values())
 
 
 @app.teardown_appcontext
