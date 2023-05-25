@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+""" Advanced Task """
 from flask import Flask, render_template
 from models import storage
 
@@ -5,6 +7,7 @@ app = Flask('web_flask')
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    """ Fetch data  """
     states = storage.all('State').values()
     states = sorted(states, key=lambda x: x.name)
     amenities = storage.all('Amenity').values()
@@ -16,6 +19,7 @@ def hbnb():
 
 @app.teardown_appcontext
 def close_session(exception=None):
+    """ Close session  """
     storage.close()
 
 if __name__ == "__main__":
